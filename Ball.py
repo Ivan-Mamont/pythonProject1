@@ -21,6 +21,7 @@ global schet2
 schet1 = 0
 schet2 = 0
 
+
 def new_ball():
     """Рисуем новый шарик"""
     global x, y, r
