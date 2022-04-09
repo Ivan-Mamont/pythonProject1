@@ -33,12 +33,16 @@ def new_ball():
 
 def new_balloon():
     """Рисуем новый воздушный шарик"""
-    global x_b, y_b, r_b
+    global x_b, y_b, r_b, color2
     x_b = randint(100, 1100)
     y_b = randint(100, 800)
     r_b = randint(10, 100)
     color2 = COLORS[randint(0, 5)]
     circle(screen, color2, (x_b, y_b), r_b)
+
+def old_balloon():
+    '''Рисуем лопнувший шар'''
+    polygon(screen, color2, [(x_b + 5, y_b + 5), (x_b - 2, y_b + 2), (x_b + 2, y_b - 5), (x_b + 5, y_b)], True)
 
 
 def click(event):
@@ -52,6 +56,7 @@ def click(event):
     popal2 = sqrt((x_b - a)**2 + (y_b - b)**2)
     if popal2 <= r_b:
         circle(screen, YELLOW, event.pos, 20)
+        old_balloon()
         schet2 += 1
 
 
