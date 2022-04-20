@@ -5,6 +5,7 @@ def cubic(q):
         summa += int(w)**3
     return summa
 
+
 def is_sum_of_cubes(s):
     sum_n = 0
     i = 0
@@ -18,9 +19,15 @@ def is_sum_of_cubes(s):
             i += 3
         else:
             i += 1
-    print(h)
+    h.append(sum_n)
+    h.append('Lucky')
+
     if sum_n > 0:
-        print('{0}, {1}, {2}'.format(h, sum_n, 'Lucky'))
+        for i in h:
+            print(i, end=' ')
+
+
+        #print('{0}, {1}, {2}'.format(*h, sum_n, 'Lucky'), sep='')
     #  return "n0 n1 sum(n) Lucky"
     print("Unlucky")
 
@@ -29,6 +36,6 @@ def is_sum_of_cubes(s):
 
 
 
-
-is_sum_of_cubes("&z _upon 407298a --- ???ry, ww/100 I thought, 631str*ng and w===y -721&()") #, "407 407 Lucky")
+#, "407 407 Lucky")
 # is_sum_of_cubes("No numbers!") #, "Unlucky")
+is_sum_of_cubes("&z _upon 407298a --- ???ry, ww/100 I tho333ught, 631str* and w===y -721&()")
