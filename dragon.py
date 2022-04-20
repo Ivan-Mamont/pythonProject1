@@ -1,28 +1,35 @@
-class Dragon
-def dragon_create():
-    global health
-    health = 100
+class Dragon:
+    def __init__(self, name):
+        self.name = name
+        self.health = 100
 
-def dragon_is_alive():
-    return health > 0
+    def is_alive(self):
+        return self.health > 0
 
-def dragon_get_damage(damage):
-    global health
-    health -= damage
-    if health <0:
-        health = 0
-def dragon_talk():
-    print('My health', health, 'Hit me!')
+    def get_damage(self, damage):
 
+        self.health -= damage
+        if self.health <0:
+            self.health = 0
+    def talk(self):
+        print(self.name, 'health', self.health, 'Hit me!')
+
+    def final_cry(self):
+        print(self.name, 'Dead!')
 
 def main():
+    enemy = Dragon('Smog')
+    enemy_list = [Dragon('Smog'), Dragon('Hudra')]
     finish = False
-    dragon_create()
     while not finish:
-        dragon_talk()
+        enemy = enemy_list[0]
+        enemy.talk()
         damage = int(input())
-        dragon_get_damage(damage)
-        if not dragon_is_alive():
+        enemy.get_damage(damage)
+        if not enemy.is_alive():
+            enemy_list.pop(0)
+            enemy.final_cry()
+        if not enemy_list:
             finish = True
     print('You win!')
 
