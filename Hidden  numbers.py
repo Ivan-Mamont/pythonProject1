@@ -7,35 +7,47 @@ def cubic(q):
 
 
 def is_sum_of_cubes(s):
+    s = s + '  '
     sum_n = 0
     i = 0
     h = []
-    while i <= len(s)-2:
+    count = 0
+    while i <= len(s)-3:
         if s[i].isdigit() and s[i+1].isdigit() and s[i+2].isdigit():
             t = cubic(s[i:i+3])
-            if t == int(s[i:i+3]):
+            if str(t) == int(s[i:i+3]):
+                count += 1
+                h.append(str(t))
                 sum_n += t
-                h.append(t)
             i += 3
+
+        elif s[i].isdigit() and s[i+1].isdigit():
+            t = cubic(s[i:i+2])
+            if str(t) == int(s[i:i+2]):
+                count += 1
+                h.append(str(t))
+                sum_n += t
+            i += 2
+
+        elif s[i].isdigit():
+            t = cubic(s[i])
+            if str(t) == s[i]:
+                count += 1
+                h.append(str(t))
+                sum_n += t
+            i += 1
+
         else:
             i += 1
-    h.append(sum_n)
+
+
+    h.append(str(sum_n))
     h.append('Lucky')
 
-    if sum_n > 0:
-        for i in h:
-            print(i, end=' ')
+    if count > 0:
+        return ' '.join(h)
+    return "Unlucky"
 
 
-        #print('{0}, {1}, {2}'.format(*h, sum_n, 'Lucky'), sep='')
-    #  return "n0 n1 sum(n) Lucky"
-    print("Unlucky")
-
-
-
-
-
-
-#, "407 407 Lucky")
-# is_sum_of_cubes("No numbers!") #, "Unlucky")
-is_sum_of_cubes("&z _upon 407298a --- ???ry, ww/100 I tho333ught, 631str* and w===y -721&()")
+ddd = is_sum_of_cubes("l125ab o 10 01 10" )
+print(ddd)
