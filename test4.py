@@ -1,11 +1,18 @@
-n = 3
-# table = [[(int(i * n + i / n + j) % (n * n) + 1) for j in range(n * n)] for i in range(n * n)]
-table = []
-str = []
-for i in range(n * n):
-    for j in range(n * n):
-        str.append(int(i * n + i / n + j) % (n * n) + 1)
-        print(int(i * n + i / n + j) % (n * n))
-    table.append([str])
-print(table)
+from datetime import datetime
 
+result = []
+with open('diary.txt', 'r') as file:
+        i = 0
+        for line in file:
+            if line !='\n':
+                result.append(line)
+
+            i += 1
+            # print(datetime.strptime(line.strip(), '%d.%m.%Y; %H:%M'))
+            # try:
+            #     my_day = datetime.strptime(line.strip(), '%d.%m.%Y; %H:%M')
+            #     result.append(my_day)
+            #     print(result)
+            # except:
+            #     result[my_day][line]
+            print(result)
